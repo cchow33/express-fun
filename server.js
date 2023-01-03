@@ -3,6 +3,15 @@ const app = express();
 
 // console.log(app); // app object
 
+app.use(express.static('public'));
+
+app.set('view engine', 'ejs');
+
+app.get('/names', (req, res) => { 
+  res.render('index'); // looks for index in views folder with extension ejs
+});
+
+
 app.get('/', (req, res) => {
   // res.send('Hello world!');
   res.json({ name: 'Carmen', age: 41 });
