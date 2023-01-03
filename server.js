@@ -9,8 +9,21 @@ app.get('/', (req, res) => {
 });
 
 app.get('/names/:name', (req, res) => {
-  res.send(`Hello ${req.params.name}`);
+  res.send(`Hello ${req.query.name}`);
 });
+
+app.get('/names/:age', (req, res) => {
+  res.send(`You are ${req.query.age} years old`);
+});
+
+app.get('/names/:lastname', (req, res) => {
+  res.send(`Your last name is ${req.query.lastname}`);
+});
+
+app.get('/person/:firstname/:lastname', (req, res) => {
+  res.send(`Hello ${req.query.name} ${req.query.lastname}!`);
+})
+
 
 
 app.listen(8000);
